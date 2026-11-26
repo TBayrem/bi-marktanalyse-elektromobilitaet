@@ -1,5 +1,7 @@
 # Elektromobilität: Marktanalyse mit Power BI (Business-Intelligence-Projekt)
 
+**Webseite mit Prototyp zum Ausprobieren:** https://tbayrem.github.io/bi-marktanalyse-elektromobilitaet/
+
 Projektbericht im Modul *Business Intelligence* (M.Sc. Wirtschaftsinformatik, Hochschule Worms, 08.10.2024 bis 02.12.2024). Team: Sarah Hauschildt, Tsopfack Sofo Romi, Bayrem Trabelsi. Betreuung: Prof. Dr. Paul Langer. Das Unternehmen PhotoWin Energy ist ein fiktiver Lehrfall.
 
 ## Fragestellung

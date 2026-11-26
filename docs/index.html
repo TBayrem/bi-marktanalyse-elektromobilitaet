@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elektromobilität: Marktanalyse mit Power BI</title>
+<meta name="description" content="Soll ein Energiekonzern mit Wind- und Solarkompetenz in die Elektromobilität einsteigen, und mit welchen Maßnahmen?">
+<style>
+:root{--bg:#fafaf7;--fg:#1d2327;--mut:#5b6670;--card:#fff;--line:#dde1e5;--acc:#1f5fbf;--acc2:#e8f0fc;--ok:#1b7f4b;--warn:#b25e00;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#14181c;--fg:#e8ebee;--mut:#9aa6b1;--card:#1c2228;--line:#2d363e;--acc:#6aa3ff;--acc2:#1d2a3d;--ok:#4cc38a;--warn:#f0a34a;--bad:#ff8a80}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}
+header.top{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header.top nav{max-width:980px;margin:auto;padding:10px 16px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+header.top nav b{margin-right:auto}
+header.top a{text-decoration:none;font-size:14px}
+.wrap{max-width:980px;margin:auto;padding:0 16px}
+.hero{padding:48px 0 28px}
+.hero h1{font-size:clamp(26px,4.5vw,40px);line-height:1.2;margin:0 0 10px}
+.hero p.sub{font-size:18px;color:var(--mut);margin:0 0 16px;max-width:720px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.badge{background:var(--acc2);color:var(--acc);border-radius:99px;padding:3px 12px;font-size:13px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:15px;text-decoration:none;cursor:pointer}
+.btn.sec{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+section{padding:26px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:16px}
+.note{border-left:4px solid var(--warn);background:var(--card);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.proto{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.proto label{font-size:14px;color:var(--mut)}
+.proto input[type=number],.proto input[type=text],.proto select,.proto textarea{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit;font-size:14px}
+.proto table{border-collapse:collapse;width:100%;font-size:14px}
+.proto th,.proto td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.proto button{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer}
+.proto button.sec{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+.proto button:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.bar{height:14px;background:var(--acc);border-radius:4px;transition:width .2s}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+pre.mono{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto;margin:6px 0}
+ul.clean{padding-left:20px}
+footer{padding:28px 0 48px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+canvas{max-width:100%}
+.good{color:var(--ok)}.warnc{color:var(--warn)}.badc{color:var(--bad)}
+</style></head><body>
+<header class="top"><nav><b>BI Elektromobilität</b><a href="#ueberblick">Überblick</a><a href="#prototyp">Prototyp</a><a href="#grenzen">Grenzen</a><a href="#unterlagen">Unterlagen</a></nav></header>
+<main class="wrap">
+<div class="hero"><h1>Elektromobilität: Marktanalyse mit Power BI</h1><p class="sub">Soll ein Energiekonzern mit Wind- und Solarkompetenz in die Elektromobilität einsteigen, und mit welchen Maßnahmen?</p>
+<div class="badges"><span class="badge">Business Intelligence</span><span class="badge">Power BI</span><span class="badge">Hochschule Worms 2024</span></div>
+<a class="btn" href="#prototyp">Prototyp ausprobieren</a> <a class="btn sec" href="#unterlagen">Artikel und Folien</a></div>
+<section id="ueberblick"><h2>Worum geht es?</h2><p>Der Projektbericht für das fiktive Unternehmen PhotoWin Energy nutzt das Ladesäulenregister der Bundesnetzagentur und weitere Marktstatistiken, bereitet die Daten in Power Query auf und stellt sie in einem Dashboard mit zehn Grafiken dar. Daraus entstehen vier Handlungsoptionen.</p>
+<div class="grid" style="margin-top:14px"><div class="card"><h3>Daten</h3><span>Ladesäulenregister der Bundesnetzagentur (offene Daten), Marktstatistiken</span></div><div class="card"><h3>ETL</h3><span>Power Query: Datentypen, Bereinigung, Anreicherung</span></div><div class="card"><h3>Dashboard</h3><span>Zehn Grafiken in Power BI</span></div><div class="card"><h3>Optionen</h3><span>Batterien, Solarfolie, Ladesäulen, HomePorts und Tarife</span></div></div></section>
+<section id="prototyp"><h2>Prototyp: Handlungsoptionen bewerten</h2><p>Die Arbeit nennt vier Optionen, bewertet sie aber nicht. Dieser Prototyp schließt die Lücke als Entscheidungsmatrix: Sie vergeben Punkte und Gewichte, die Rangfolge ergibt sich daraus. Alle Voreinstellungen sind neutral, es sind bewusst keine Ergebnisse vorgegeben.</p>
+<div class="proto"><div id="m"></div><div id="r"></div></div></section>
+<section id="grenzen"><h2>Grenzen und Einordnung</h2><div class='note'>Die Optionen der Arbeit sind nicht bewertet, es gibt keinen Business Case. Daten aus kostenpflichtigen Statistiken (Statista) sind nicht im Repository, nur Quellenhinweise. Das Unternehmen ist ein fiktiver Lehrfall. Das Power-BI-Dashboard selbst liegt hier nicht vor.</div></section>
+<section id="unterlagen"><h2>Unterlagen</h2>
+<ul class="clean"><li><a href="Artikel_BI_Elektromobilitaet.pdf">Fachartikel (PDF)</a> mit Quellenangaben · <a href="Artikel_BI_Elektromobilitaet.md">Markdown</a></li>
+<li><a href="BI_Elektromobilitaet.pdf">Präsentation (PDF)</a></li>
+<li><a href="https://github.com/TBayrem/bi-marktanalyse-elektromobilitaet">Repository auf GitHub</a></li></ul></section>
+</main>
+<footer><div class="wrap">Bayrem Trabelsi · M.Sc. Wirtschaftsinformatik, Hochschule Worms · <a href="https://github.com/TBayrem">github.com/TBayrem</a><br>Der Prototyp enthält keine Marktdaten.</div></footer>
+<script>
+
+const O=["Batterien","Solarfolie","Ladesäulen","HomePorts und Tarife"],C=[["Marktpotenzial",1],["Passung zu vorhandener Kompetenz",1],["geringer Investitionsbedarf",1],["geringes Risiko",1]];
+const sc=O.map(()=>C.map(()=>3)),wt=C.map(c=>c[1]);
+function d(){let h='<table><tr><th>Option</th>'+C.map((c,j)=>'<th>'+c[0]+'<br><label>Gewicht <input type="number" min="0" max="5" value="'+wt[j]+'" data-w="'+j+'" style="width:50px"></label></th>').join('')+'</tr>';
+O.forEach((o,i)=>{h+='<tr><td><b>'+o+'</b></td>'+C.map((c,j)=>'<td><input type="range" min="1" max="5" value="'+sc[i][j]+'" data-s="'+i+'|'+j+'"> <span>'+sc[i][j]+'</span></td>').join('')+'</tr>'});
+document.getElementById('m').innerHTML=h+'</table>';
+document.querySelectorAll('[data-w]').forEach(e=>e.oninput=()=>{wt[+e.dataset.w]=+e.value||0;r()});
+document.querySelectorAll('[data-s]').forEach(e=>e.oninput=()=>{const [i,j]=e.dataset.s.split('|');sc[+i][+j]=+e.value;e.nextElementSibling.textContent=e.value;r()});r()}
+function r(){const s=wt.reduce((a,b)=>a+b,0);const R=O.map((o,i)=>({o,v:s?sc[i].reduce((a,v,j)=>a+v*wt[j],0)/s:0})).sort((a,b)=>b.v-a.v);
+document.getElementById('r').innerHTML='<h3>Rangfolge</h3>'+R.map((x,i)=>'<div class="row"><b style="width:190px">'+(i+1)+'. '+x.o+'</b><div style="flex:1;min-width:100px"><div class="bar" style="width:'+x.v*20+'%"></div></div><span class="mono">'+x.v.toFixed(2).replace('.',',')+' / 5</span></div>').join('')}
+d();
+
+</script></body></html>
